@@ -1,0 +1,168 @@
+/* Savanna Brew Café — shared responsive stylesheet */
+
+/* 1. Brand palette and base styles */
+:root {
+  --coffee: #6F4E37;
+  --cream: #F5E9DA;
+  --orange: #D9822B;
+  --ink: #2B1B12;
+  --white: #FFFFFF;
+  --muted: #765F50;
+  --shadow: 0 12px 30px rgba(43, 27, 18, .12);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #FFFCF8;
+  font: 16px/1.65 "Open Sans", Arial, sans-serif;
+}
+img { display: block; max-width: 100%; }
+a { color: var(--coffee); }
+a:hover { color: var(--orange); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; line-height: 1.2; }
+h1 { font-size: clamp(2.5rem, 6vw, 4.6rem); margin: .2rem 0 1rem; }
+h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin: .25rem 0 1rem; }
+h3 { font-size: 1.4rem; margin: .2rem 0 .55rem; }
+p { margin: 0 0 1rem; }
+.container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+.section { padding-block: 4.5rem; }
+.eyebrow { color: var(--orange); font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin-bottom: .7rem; }
+.lead { max-width: 760px; font-size: 1.12rem; color: var(--muted); }
+
+/* 2. Shared header and Flexbox navigation */
+.site-header { background: var(--cream); border-bottom: 1px solid rgba(111,78,55,.14); }
+.header-inner { min-height: 96px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.brand img { width: 250px; height: auto; }
+.main-nav { display: flex; align-items: center; gap: .45rem; flex-wrap: wrap; }
+.main-nav a { text-decoration: none; font-weight: 700; padding: .65rem .9rem; border-radius: 999px; transition: background .25s ease, color .25s ease; }
+.main-nav a:hover, .main-nav a:focus-visible { background: rgba(217,130,43,.16); color: var(--ink); }
+.main-nav a.active { background: var(--coffee); color: var(--white); }
+
+/* 3. Buttons and common calls to action */
+.button { display: inline-block; border: 0; border-radius: 999px; padding: .9rem 1.5rem; background: var(--orange); color: var(--ink); font: 700 1rem "Open Sans", Arial, sans-serif; text-decoration: none; cursor: pointer; transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+.button:hover { background: #E69A49; color: var(--ink); transform: translateY(-3px); box-shadow: 0 8px 18px rgba(43,27,18,.2); }
+.button-light { background: var(--cream); }
+
+/* 4. Home page */
+.hero { min-height: 590px; display: flex; align-items: center; position: relative; isolation: isolate; color: var(--white); background: var(--coffee) url("../images/hero.svg") center/cover no-repeat; }
+.hero-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(31,19,12,.88), rgba(31,19,12,.45) 58%, rgba(31,19,12,.05)); }
+.hero-content { padding-block: 6rem; }
+.hero-content h1 { max-width: 700px; }
+.hero-content > p:not(.eyebrow) { max-width: 550px; font-size: 1.12rem; margin-bottom: 1.7rem; color: #FFF7EE; }
+.hero .eyebrow { color: #F5C18A; }
+.intro { text-align: center; }
+.intro .lead { margin-inline: auto; }
+.section-heading { text-align: center; margin-bottom: 2rem; }
+.feature-cards { display: flex; gap: 1.4rem; }
+.feature-card { flex: 1; min-width: 0; background: var(--white); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); transition: transform .25s ease, box-shadow .25s ease; }
+.feature-card:hover { transform: translateY(-7px); box-shadow: 0 18px 38px rgba(43,27,18,.18); }
+.feature-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.feature-card div { padding: 1.3rem 1.4rem 1.5rem; }
+.feature-card p { color: var(--muted); }
+.text-link { font-weight: 700; text-decoration: none; }
+.visit-banner { background: var(--coffee); color: var(--white); padding: 3.5rem 0; }
+.visit-inner { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+.visit-inner h2 { max-width: 650px; }
+.visit-inner p:not(.eyebrow) { color: #F5E9DA; }
+.visit-banner .eyebrow { color: #F5C18A; }
+
+/* 5. Inner page headings and About page */
+.page-main { padding-block: 3.5rem 5rem; }
+.page-intro { margin-bottom: 3rem; }
+.page-intro h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); }
+.about-layout { display: grid; grid-template-columns: minmax(280px, .9fr) 1.1fr; gap: 3rem; align-items: center; }
+.owner-photo { width: 100%; border-radius: 24px; box-shadow: var(--shadow); }
+.about-layout p { color: var(--muted); }
+blockquote { margin: 1.7rem 0 0; padding: .6rem 0 .6rem 1.3rem; border-left: 4px solid var(--orange); color: var(--coffee); font: italic 1.2rem/1.6 Georgia, serif; }
+blockquote cite { display: block; margin-top: .7rem; font: 700 .9rem "Open Sans", Arial, sans-serif; color: var(--muted); }
+.values { padding-bottom: 1rem; }
+.value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.value-grid article { background: var(--cream); border-radius: 16px; padding: 1.5rem; }
+.value-grid span { color: var(--orange); font-weight: 700; letter-spacing: .1em; }
+.value-grid p { color: var(--muted); margin-bottom: 0; }
+
+/* 6. Menu tables */
+.menu-section { margin: 2.7rem 0; }
+.menu-section h2 { font-size: 1.8rem; }
+.table-wrap { width: 100%; overflow-x: auto; border-radius: 12px; box-shadow: 0 5px 18px rgba(43,27,18,.07); }
+.menu-table, .hours-table { width: 100%; border-collapse: collapse; background: var(--white); }
+.menu-table th, .hours-table th { background: var(--coffee); color: var(--white); text-align: left; padding: .9rem 1rem; }
+.menu-table td, .hours-table td { padding: .85rem 1rem; border-bottom: 1px solid #EADFD4; }
+.menu-table tbody tr:nth-child(even), .hours-table tbody tr:nth-child(even) { background: #F8F0E8; }
+.menu-table tbody tr:hover, .hours-table tbody tr:hover { background: #FCE3C8; }
+.menu-table .price { text-align: right; white-space: nowrap; font-weight: 700; }
+.menu-note { color: var(--muted); font-style: italic; }
+
+/* 7. Gallery — CSS Grid */
+.gallery-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.2rem; }
+.gallery-grid figure { margin: 0; overflow: hidden; border-radius: 14px; background: var(--cream); box-shadow: var(--shadow); }
+.gallery-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: transform .35s ease; }
+.gallery-grid figure:hover img { transform: scale(1.07); }
+.gallery-grid figcaption { padding: .8rem 1rem; font-weight: 600; font-size: .92rem; }
+
+/* 8. Contact and reservation form */
+.contact-layout { display: grid; grid-template-columns: 1.2fr .8fr; gap: 2rem; align-items: start; }
+.reservation-panel, .contact-details { padding: 2rem; border-radius: 18px; background: var(--cream); }
+.reservation-panel h2, .contact-details h2 { font-size: 1.9rem; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.form-field { display: flex; flex-direction: column; gap: .35rem; margin-bottom: 1rem; }
+.form-field label, fieldset legend { font-weight: 700; }
+input, select, textarea { width: 100%; padding: .8rem .9rem; border: 1px solid #BDA995; border-radius: 8px; background: var(--white); color: var(--ink); font: inherit; }
+input:focus, select:focus, textarea:focus { outline: 3px solid rgba(217,130,43,.45); border-color: var(--orange); }
+fieldset { border: 1px solid #CDBBA9; border-radius: 10px; padding: 1rem; margin: .2rem 0 1rem; }
+.radio-row { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+.radio-row label { display: inline-flex; align-items: center; gap: .4rem; }
+.radio-row input { width: auto; accent-color: var(--coffee); }
+.contact-details { background: #FBF4EC; }
+.contact-details h3 { margin-top: 1.8rem; }
+.contact-details p { margin-bottom: 1.2rem; }
+.hours-table { font-size: .9rem; }
+.hours-table th, .hours-table td { padding: .65rem; }
+.form-note { color: var(--muted); font-size: .82rem; margin: 1rem 0 0; }
+
+/* 9. Shared footer */
+.site-footer { background: #2B1B12; color: var(--cream); padding: 3rem 0 1rem; }
+.footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.footer-grid h2 { font-size: 1.25rem; color: #F5C18A; }
+.footer-grid p { color: #E8D8C8; }
+.footer-grid a { color: #F5E9DA; }
+.footer-grid a:hover { color: #F5C18A; }
+.copyright { text-align: center; border-top: 1px solid rgba(245,233,218,.2); margin: 1.5rem 0 0; padding: 1rem 1rem 0; color: #D7C5B4; font-size: .88rem; }
+
+/* 10. Tablet and mobile layouts */
+@media (max-width: 900px) {
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .header-inner { gap: 1rem; }
+  .main-nav { justify-content: flex-end; }
+}
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; justify-content: center; padding: 1rem 0; }
+  .main-nav { flex-direction: column; width: 100%; gap: .15rem; }
+  .main-nav a { width: 100%; text-align: center; }
+  .hero { min-height: 540px; background-position: 62% center; }
+  .hero-content { padding-block: 4rem; }
+  .feature-cards { flex-direction: column; }
+  .feature-card { display: grid; grid-template-columns:  minmax(110px, .8fr) 1.2fr; }
+  .feature-card img { height: 100%; min-height: 150px; }
+  .visit-inner { flex-direction: column; align-items: flex-start; }
+  .about-layout, .contact-layout { grid-template-columns: 1fr; }
+  .owner-photo { max-height: 440px; object-fit: cover; }
+  .value-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .form-grid { grid-template-columns: 1fr; gap: 0; }
+  .page-main { padding-top: 2.5rem; }
+}
+@media (max-width: 420px) {
+  .container { width: min(100% - 28px, 1120px); }
+  .brand img { width: 215px; }
+  .feature-card { display: block; }
+  .radio-row { flex-direction: column; gap: .5rem; }
+  .reservation-panel, .contact-details { padding: 1.2rem; }
+}
